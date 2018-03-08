@@ -1,2 +1,7 @@
-secret
 node_modules
+.env
+.idea
+.gitignore
+config.js
+./data/secret
+./backend/config.js

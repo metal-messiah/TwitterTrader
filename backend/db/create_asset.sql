@@ -1,0 +1,1 @@
+INSERT INTO assets ( id, name, twitter, twitterid, initial_likes, initial_mentions, initial_follows, current_likes, current_mentions, current_follows, cost ) VALUES ( $1, $2, $3,$4, $5, $6, $7, $8,$9,$10,$11);
