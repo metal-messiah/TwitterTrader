@@ -10,7 +10,7 @@ module.exports = new Auth0Strategy({
     scope: 'openid profile'
 },
     function (accessToken, refreshToken, extraParams, profile, done) {
-        //console.log(profile)
+        // console.log(profile)
         done(null, profile)
     }
 );

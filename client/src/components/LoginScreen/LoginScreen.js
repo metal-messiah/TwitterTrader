@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../../assets/logo.png';
 import { Link } from 'react-router-dom';
-import './LoginScreen.css';
+// import './LoginScreen.css';
 
 export default class LoginScreen extends Component {
 
@@ -14,8 +14,7 @@ export default class LoginScreen extends Component {
 
             <div>
               <div className="logo-container">
-                <img src={logo}/><br/>
-                <span className="branding">Helo</span>
+                <img className="logo-img" src={logo}/><br/>
               </div>
               <div className="login-button-wrapper">
                 <a href="/api/auth/login"><div className="login-button">Login / Register</div></a>

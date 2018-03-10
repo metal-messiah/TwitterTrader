@@ -38,14 +38,11 @@ massive(db)
     .then(dbInstance => {
         app.set('db', dbInstance);
         console.log("Set DB Instance")
-        setTimeout(function () {
-            updateCelebs();
-        }, 10000);
+        updateCelebs(dbInstance);
     });
 
-function updateCelebs() {
+function updateCelebs(dbInstance) {
 
-    let dbInstance = app.get('db');
     celebrities.sort((a, b) => b.mentions - a.mentions)
 
 
@@ -57,16 +54,17 @@ function updateCelebs() {
         //cost is 50 for now
         //console.log(celeb.id.toString())
         dbInstance.find_celebrity([celeb.id.toString()]).then(match => {
-            console.log(match)
             if (match.length) {
-                dbInstance.update_celebrities([celeb.alias, celeb.username, celeb.id, 0, celeb.followers, 50]).then(() => {
-                    console.log("UPDATED CELEBS")
+                dbInstance.update_celebrities([celeb.alias, celeb.username, celeb.id.toString(), 0, celeb.followers, 50]).then(() => {
+                    console.log("UPDATED " + celeb.alias)
                 });
             } else {
-                dbInstance.create_celebrity([celeb.alias, celeb.username, celeb.id, 0, celeb.followers, 50]).then(() => {
-                    console.log("ADDED CELEBS")
+                dbInstance.create_celebrity([celeb.alias, celeb.username, celeb.id.toString(), 0, celeb.followers, 50]).then(() => {
+                    console.log("ADDED "+celeb.alias)
                 })
             }
+        }).catch(err => {
+            console.log(err)
         })
     })
 
@@ -99,7 +97,7 @@ function runGame(res, end_time) {
 }
 
 
-app.use(express.static(`../client/build`));
+// app.use(express.static(`../client/build`));
 app.use(session({
     secret: 'fractionalcarpentry',
     resave: true,
@@ -202,10 +200,12 @@ app.get(`${authUrl}/logout/`, (req, res, next) => {
 });
 
 app.patch(`${userUrl}/update/`, controller.updateUser);
-app.get(`${userUrl}/:id/`, controller.getUser);
+app.get(`${userUrl}/`, controller.getUser);
 
-app.get(`${assetsUrl}/updateAssets/:id`, controller.getAssets)
-app.post(`${assetsUrl}/updateAssets/:id`, controller.setAsset)
+app.get(`${assetsUrl}/getAssets/`, controller.getAssets)
+app.post(`${assetsUrl}/updateAssets/`, controller.setAsset)
+
+app.get(`/api/admin/celebs`, controller.getCelebrities)
 
 //app.delete(`/api/admin/reset`, controller.reset);
 

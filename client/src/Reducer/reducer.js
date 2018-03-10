@@ -1,31 +1,33 @@
 const initalState = {
 
+    //user
     firstname: "",
     lastname:"",
-    gender:"",
-    hairColor:"",
-    eyeColor:"",
-    hobby:"",
-    birthDay: "",
-    birthMonth: "",
-    birthYear: "",
-    id: "",
-    picture:"",
-    friends:[]
+    imagename:"",
+    imagedata:"",
+    coins:100,
+    score:0,
+    //assets
+    assets: [],
+    //celebrities
+    celebrities: [],
+    //games 
+    games:[],
+    //app information
+    activepanel: ""
 
 }
 
 const UPDATE_FIRSTNAME = "UPDATE_FIRSTNAME";
 const UPDATE_LASTNAME = "UPDATE_LASTNAME";
-const UPDATE_GENDER = "UPDATE_GENDER";
-const UPDATE_EYECOLOR = "UPDATE_EYECOLOR";
-const UPDATE_HAIRCOLOR = "UPDATE_HAIRCOLOR";
-const UPDATE_HOBBY = "UPDATE_HOBBY";
-const UPDATE_BIRTHDAY = "UPDATE_BIRTHDAY";
-const UPDATE_BIRTHMONTH = "UPDATE_BIRTHMONTH";
-const UPDATE_BIRTHYEAR = "UPDATE_BIRTHYEAR";
-const UPDATE_PICTURE = "UPDATE_PICTURE";
-const UPDATE_FRIENDS = "UPDATE_FRIENDS";
+const UPDATE_IMAGENAME = "UPDATE_IMAGENAME";
+const UPDATE_IMAGEDATA = "UPDATE_IMAGEDATA";
+const UPDATE_COINS = "UPDATE_COINS";
+const UPDATE_SCORE = "UPDATE_SCORE";
+const UPDATE_ASSETS = "UPDATE_ASSETS";
+const UPDATE_CELEBRITIES = "UPDATE_CELEBRITIES";
+const UPDATE_GAMES = "UPDATE_GAMES";
+const UPDATE_ACTIVEPANEL = "UPDATE_ACTIVEPANEL";
 
 function reducer(state = initalState, action){
     console.log("REDUCER!")
@@ -37,32 +39,29 @@ function reducer(state = initalState, action){
         case UPDATE_LASTNAME:
             return Object.assign({}, state, {lastname: action.payload});
 
-        case UPDATE_GENDER:
-            return Object.assign({}, state, {gender: action.payload});
+        case UPDATE_IMAGENAME:
+            return Object.assign({}, state, {imagename: action.payload});
 
-        case UPDATE_EYECOLOR:
-            return Object.assign({}, state, {eyeColor: action.payload});
+        case UPDATE_IMAGEDATA:
+            return Object.assign({}, state, {imagedata: action.payload});
 
-        case UPDATE_HAIRCOLOR:
-            return Object.assign({}, state, {hairColor: action.payload});
+        case UPDATE_COINS:
+            return Object.assign({}, state, {coins: action.payload});
 
-        case UPDATE_HOBBY:
-            return Object.assign({}, state, {hobby: action.payload});
+        case UPDATE_SCORE:
+            return Object.assign({}, state, {score: action.payload});
 
-        case UPDATE_BIRTHDAY:
-            return Object.assign({}, state, {birthDay: action.payload});
+        case UPDATE_ASSETS:
+            return Object.assign({}, state, {assets: action.payload});
 
-        case UPDATE_BIRTHMONTH:
-            return Object.assign({}, state, {birthMonth: action.payload});
+        case UPDATE_CELEBRITIES:
+            return Object.assign({}, state, {celebrities: action.payload});
 
-        case UPDATE_BIRTHYEAR:
-            return Object.assign({}, state, {birthYear: action.payload});
+        case UPDATE_GAMES:
+            return Object.assign({}, state, {games: action.payload});
 
-        case UPDATE_PICTURE:
-            return Object.assign({}, state, {picture: action.payload});
-
-        case UPDATE_FRIENDS:
-        return Object.assign({}, state, {friends: action.payload});
+        case UPDATE_ACTIVEPANEL:
+            return Object.assign({}, state, {activepanel: action.payload});
 
         default: return state;
     }
@@ -83,66 +82,59 @@ export function updateLastname (lastname) {
     }
 }
 
-export function updateGender (gender) {
+export function updateImageName (imagename) {
     return {
-        type: UPDATE_GENDER,
-        payload: gender
+        type: UPDATE_IMAGENAME,
+        payload: imagename
     }
 }
 
-export function updateEyeColor (eyeColor) {
+export function updateImageData (imagedata) {
     return {
-        type: UPDATE_EYECOLOR,
-        payload: eyeColor
+        type: UPDATE_IMAGEDATA,
+        payload: imagedata
     }
 }
 
-export function updateHairColor (hairColor) {
+export function updateCoins (coins) {
     return {
-        type: UPDATE_HAIRCOLOR,
-        payload: hairColor
+        type: UPDATE_COINS,
+        payload: coins
     }
 }
 
-export function updateHobby (hobby) {
+export function updateScore (score) {
     return {
-        type: UPDATE_HOBBY,
-        payload: hobby
+        type: UPDATE_SCORE,
+        payload: score
     }
 }
 
-export function updateBirthDay (birthDay) {
+export function updateAssets (assets) {
     return {
-        type: UPDATE_BIRTHDAY,
-        payload: birthDay
+        type: UPDATE_ASSETS,
+        payload: assets
     }
 }
 
-export function updateBirthMonth (birthMonth) {
+export function updateCelebrities (celebrities) {
     return {
-        type: UPDATE_BIRTHMONTH,
-        payload: birthMonth
+        type: UPDATE_CELEBRITIES,
+        payload: celebrities
     }
 }
 
-export function updateBirthYear (birthYear) {
+export function updateGames (games) {
     return {
-        type: UPDATE_BIRTHYEAR,
-        payload: birthYear
+        type: UPDATE_GAMES,
+        payload: games
     }
 }
 
-export function updatePicture (picture) {
+export function updateActivePanel (activepanel) {
     return {
-        type: UPDATE_PICTURE,
-        payload: picture
-    }
-}
-
-export function updateFriends (friends) {
-    return {
-        type: UPDATE_FRIENDS,
-        payload: friends
+        type: UPDATE_ACTIVEPANEL,
+        payload: activepanel
     }
 }
 

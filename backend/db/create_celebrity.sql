@@ -1,1 +1,1 @@
-INSERT INTO celebs ( twittername, twitter, twitterid, current_likes, current_follows, cost_amount ) VALUES ( $1, $2, $3,$4, $5, $6);
+INSERT INTO celebrities ( twittername, twitter, twitterid, current_likes, current_follows, cost_amount ) VALUES ( $1, $2, $3,$4, $5, $6);

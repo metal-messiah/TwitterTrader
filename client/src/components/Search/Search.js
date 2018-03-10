@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navbar from "../Navbar/Navbar";
 import { Link } from 'react-router-dom';
-import './Search.css';
+// import './Search.css';
 import axios from 'axios';
 
 export default class Profile extends Component {

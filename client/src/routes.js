@@ -16,7 +16,8 @@ export default (
             <Route exact path='/' component={Dashboard} />
             <Route path='/auth' component={LoginScreen} />
             <Route path='/profile' component={Profile} />
-            <Route path="/search/:page" component={Search} />
+            <Route path="/marketplace" component={Search} />
+            <Route path="/leaders" component={Search} />
         </div>
     </HashRouter>    
 )

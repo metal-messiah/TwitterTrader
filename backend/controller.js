@@ -55,7 +55,7 @@ module.exports = {
             twitterid
         } = req.query;
 
-        dbInstance.find_celebrity([twitter]).then(celebrity => {
+        dbInstance.find_celebrity([twitterid]).then(celebrity => {
 
             let {
                 name,
@@ -106,5 +106,16 @@ module.exports = {
             res.status(200).send(user)
         }).catch(err => res.status(500).send(err))
 
+    },
+    getCelebrities: (req, res)=>{
+        let dbInstance = req.app.get('db');
+        // const {
+        //     id
+        // } = req.user;
+        //console.log(id)
+
+        dbInstance.get_all_celebrities([]).then(user => {
+            res.status(200).send(user)
+        }).catch(err => res.status(500).send(err))
     }
 };
